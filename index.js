@@ -16,7 +16,6 @@ const getData = (artistVar) => {
     .then((songs) => {
       createCard(songs.data);
       modalContent(songs.data);
-      countFunc();
     })
     .catch((error) => console.log(error));
 };
@@ -41,8 +40,6 @@ const createCard = (album) => {
 const countFunc = () => {
   let count = document.querySelectorAll(".card-body");
   console.log(`The number of albums on the page is ${count.length}`);
-  let buttonCount = document.querySelector(".btn-success");
-  buttonCount.addEventListener("click", countFunc);
 };
 
 const modalContent = (songs) => {
@@ -56,3 +53,5 @@ const modalContent = (songs) => {
 };
 
 window.onload = getData("metalica");
+let buttonCount = document.querySelector(".btn-success");
+buttonCount.addEventListener("click", countFunc);
