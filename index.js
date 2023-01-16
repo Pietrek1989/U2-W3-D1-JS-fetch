@@ -21,7 +21,7 @@ const getData = (artistVar) => {
 };
 
 const createCard = (album) => {
-  let container = document.querySelector("#metalica");
+  let container = document.querySelector("#artist");
   container.innerHTML += `<h1>${album[3].artist.name}</h1>`;
   for (let i = 0; i < album.length; i++) {
     const element = album[i];
@@ -52,6 +52,17 @@ const modalContent = (songs) => {
   buttonModal.addEventListener("click", modalContent);
 };
 
-window.onload = getData("metalica");
 let buttonCount = document.querySelector(".btn-success");
 buttonCount.addEventListener("click", countFunc);
+
+function search() {
+  let searchWindow = document.querySelector(".form-control");
+  console.log(searchWindow);
+  let value = searchWindow.value;
+  console.log(value);
+  let searchButton = document.querySelector(".search-button");
+  searchButton.addEventListener("click", getData(value));
+}
+window.onload = search();
+let searchButton = document.querySelector(".search-button");
+searchButton.addEventListener("click", search);
